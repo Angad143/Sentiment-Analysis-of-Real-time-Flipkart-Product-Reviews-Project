@@ -1,0 +1,102 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        /* Updated CSS to align label to the left side */
+        /* External CSS file (styles.css) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin-top: 100px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            padding: 0 20px;
+            /* Add padding to form */
+        }
+
+        label {
+            font-weight: bold;
+            text-align: left;
+            /* Align label to the left */
+            margin-bottom: 10px;
+            display: block;
+            /* Display label as block element */
+        }
+
+        input[type="text"] {
+            width: 100%;
+            /* Adjust width as needed */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            /* Make button full width */
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis of Flipkart Product Reviews</h1>
+        <form action="/" method="POST">
+            <label for="text">Enter your comment:</label>
+            <input type="text" id="text" name="text" required>
+            <p class="error-message">{% if error %}{{ error }}{% endif %}</p>
+            <button type="submit">Predict</button>
+        </form>
+        <h2>{% if sentiment == 'Positive' %} Your comment is: Positive {% elif sentiment == 'Negative' %} Your comment
+            is: Negative
+            {% else %} {% endif %} {{ emoji }}</h2>
+    </div>
+</body>
+
+</html>
